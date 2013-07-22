@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>CSS - Grundlagen</title>
+
+		<meta name="description" content="CSS 1 - Grundlagen">
+		<meta name="author" content="Martin Gelder">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/dsitc.css" id="theme">
+
+		<link rel="stylesheet" href="plugin/prism/prism.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="watermark">
+			<img src="images/dsitc.png" />
+		</div>
+
+		<div class="reveal language-css">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CSS 1</h1>
+					<h3>Grundlagen</h3>
+					<p>
+						<small><a href="https://plus.google.com/u/0/102958170634628677257">Martin Gelder</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Was ist CSS?</h2>
+					<p>CSS (<acronym><span>C</span>ascading <span>S</span>tyle <span>S</span>heets</acronym>)</p>
+					<p>Beschreibt die Formatierung eines Dokumentes</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Einbindung</h2>
+						<p>
+							<pre><code class="language-markup">&lt;!-- 1. Verlinkung --&gt;
+&lt;link rel="stylesheet" type="text/css" /&gt;
+
+&lt;!-- 2. Style Block --&gt;
+&lt;style type="text/css"&gt;
+
+    ...
+
+    /* 3. Import */
+    @import url('pfad/zu/externer/datei.css');
+
+&lt;/style&gt;
+
+&lt;!-- 4. Inline --&gt;
+&lt;div style=" ... "&gt; ... &lt;/div&gt;
+</code></pre>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Aufbau</h2>
+					<p><pre><code>/* -------------------------Regel------------------------- */
+
+   body div.content { color: #606060; font-style: italic; }
+
+/* ----Selektor----   --Deklaration-- ----Deklaration----  */</code></pre></p>
+					<p>Ausnahme: Inline-Einbindungen verfügen nur über Deklarationen</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Selektor</h2>
+						<p>Bestimmt das Ziel der Regel</p>
+					</section>
+					<section>
+						<h2>Typ</h2>
+						<p><pre><code>body { ... } /* &lt;body&gt; */
+
+div { ... } /* &lt;div&gt; */
+
+h1, h2, h3, h4, h5, h6 { ... } /* &lt;h1&gt; - &lt;h6&gt; */</code></pre></p>
+					</section>
+					<section>
+						<h2>Klasse</h2>
+						<p><pre><code>.sideblock { ... }
+
+.left { ... }
+
+.sub, .sub_aside, .not-so-important { ... }</code></pre></p>
+					</section>
+					<section>
+						<h2>ID</h2>
+						<p><pre><code>#content { ... }
+
+#main-menu { ... }
+
+#block_1, #block_2, #block_3, #block_4 { ... }</code></pre></p>
+					</section>
+					<section>
+						<h2>Kontext</h2>
+						<p><pre><code>.head h1 { ... }
+
+#main-menu ul.subtree li { ... }
+
+.sidebar .block, .sidebar .widget { ... }</code></pre></p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Deklaration</h2>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="plugin/prism/prism.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					// { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/prism/prism.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
