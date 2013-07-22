@@ -55,8 +55,7 @@
 				<section>
 					<section>
 						<h2>Einbindung</h2>
-						<p>
-							<pre><code class="language-markup">&lt;!-- 1. Verlinkung --&gt;
+						<p><pre><code class="language-markup">&lt;!-- 1. Verlinkung --&gt;
 &lt;link rel="stylesheet" type="text/css" /&gt;
 
 &lt;!-- 2. Style Block --&gt;
@@ -70,9 +69,7 @@
 &lt;/style&gt;
 
 &lt;!-- 4. Inline --&gt;
-&lt;div style=" ... "&gt; ... &lt;/div&gt;
-</code></pre>
-						</p>
+&lt;div style=" ... "&gt; ... &lt;/div&gt;</code></pre></p>
 					</section>
 				</section>
 
@@ -93,14 +90,28 @@
 					</section>
 					<section>
 						<h2>Typ</h2>
-						<p><pre><code>body { ... } /* &lt;body&gt; */
+						<p><pre><code class="language-markup">&lt;body&gt;
 
-div { ... } /* &lt;div&gt; */
+&lt;div&gt;
 
-h1, h2, h3, h4, h5, h6 { ... } /* &lt;h1&gt; - &lt;h6&gt; */</code></pre></p>
+&lt;h1&gt;
+&lt;h2&gt;
+&lt;h3&gt;</code></pre></p>
+						<p><pre><code>body { ... }
+
+div { ... }
+
+h1, h2, h3 { ... }</code></pre></p>
 					</section>
 					<section>
 						<h2>Klasse</h2>
+						<p><pre><code class="language-markup">&lt;div class="sideblock"&gt;
+
+&lt;span class="left current"&gt;
+
+&lt;small class="sub"&gt;
+&lt;p class="sub_aside"&gt;
+&lt;a class="not-so-important"&gt;</code></pre></p>
 						<p><pre><code>.sideblock { ... }
 
 .left { ... }
@@ -109,14 +120,27 @@ h1, h2, h3, h4, h5, h6 { ... } /* &lt;h1&gt; - &lt;h6&gt; */</code></pre></p>
 					</section>
 					<section>
 						<h2>ID</h2>
+						<p><pre><code class="language-markup">&lt;p id="content"&gt;
+
+&lt;ul id="main-menu"&gt;
+
+&lt;div id="block_1"&gt;
+&lt;div id="block_2"&gt;
+&lt;div id="block_3"&gt;</code></pre></p>
 						<p><pre><code>#content { ... }
 
 #main-menu { ... }
 
-#block_1, #block_2, #block_3, #block_4 { ... }</code></pre></p>
+#block_1, #block_2, #block_3 { ... }</code></pre></p>
 					</section>
 					<section>
 						<h2>Kontext</h2>
+						<p><pre><code class="language-markup">&lt;div class="head"&gt; ... &lt;h1&gt;
+
+&lt;ul id="main-menu"&gt; ... &lt;ul class="subtree"&gt; ... &lt;li&gt;
+
+&lt;div class="sidebar"&gt;
+</code></pre></p>
 						<p><pre><code>.head h1 { ... }
 
 #main-menu ul.subtree li { ... }
