@@ -137,6 +137,11 @@ body
 	overflow-y: scroll;
 }
 
+.reveal pre code
+{
+	padding: 0;
+}
+
 acronym > span
 {
 	color: #f6bf3d;
