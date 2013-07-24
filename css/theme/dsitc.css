@@ -107,13 +107,13 @@ body
 	bottom: 10px;
 	left: 10px;
 	z-index: -9999;
-	opacity: 0.15;
+	opacity: 0.2;
 }
 
 .watermark img
 {
-	max-width: 300px;
-	max-height: 300px;
+	max-width: 200px;
+	max-height: 200px;
 }
 
 .reveal
@@ -130,9 +130,21 @@ body
 	width: auto;
 }
 
+.reveal pre.scrollable
+{
+	max-height: 500px;
+	overflow-x: auto;
+	overflow-y: scroll;
+}
+
 acronym > span
 {
 	color: #f6bf3d;
+}
+
+.reveal section p.spaced
+{
+	margin-top: 0.66em;
 }
 
 ::selection
@@ -215,6 +227,19 @@ acronym > span
 	border-color: #ef7c27;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
+
+.reveal section img.frameless
+{
+	background-color: transparent;
+	border: 0;
+	box-shadow: 0 0 0 transparent;
+}
+
+.reveal section img.logo
+{
+	max-width: 300px;
+}
+
 
 /*********************************************
  * NAVIGATION CONTROLS

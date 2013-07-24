@@ -44,12 +44,12 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<section>
+					<p><img class="frameless logo" style="max-height: 300px;" src="images/grunt-logo.png" /></p>
 					<h1>Grunt</h1>
 					<h3>Einführung und Workflow</h3>
-					<p>
-						<small><a href="https://plus.google.com/u/0/102958170634628677257">Martin Gelder</a></small>
-					</p>
+					<p><small><a href="https://plus.google.com/u/0/102958170634628677257">Martin Gelder</a></small></p>
 				</section>
 
 				<section>
@@ -67,28 +67,278 @@
 						<h1 class="fragment">Javascript!</h1>
 						<h2 class="fragment">Javascript!?</h2>
 					</section>
-				</section>
-
-				<section>
 					<section>
 						<h1>Node.js</h1>
-						<p>Javascript Interpreter</p>
+						<p><img class="frameless logo" src="images/nodejs-logo.png" /></p>
+						<h2>JS Laufzeitumgebung</h2>
 						<p>Basiert auf Chromes V8 Javascript Engine</p>
 						<p>Download via <a href="http://nodejs.org/">nodejs.org</a></p>
 					</section>
 					<section>
-						<h2>Node.js - Installation</h2>
+						<h1>NPM</h1>
+						<p><img class="frameless logo" src="images/npm-logo.png" /></p>
+						<h2>Node.js Paketverwaltung</h2>
 					</section>
 				</section>
+
+				<section>
+					<section>
+						<h1>Tool Setup</h1>
+					</section>
+					<section>
+						<h2>1. Node.js</h2>
+						<p>Installer <a href="http://nodejs.org/">herunterladen</a> und ausführen</p>
+						<p>NPM ist Bestandteil von Node.js</p>
+					</section>
+					<section>
+						<h2>2. Grunt</h2>
+						<p>NPM übernimmt ab hier</p>
+						<p><pre><code>npm install -g grunt-cli</code></pre></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Grunt Aufbau</h1>
+						<ul>
+							<li>Alles Plugins</li>
+							<li>Plugins liefern Aufgaben</li>
+							<li>Projekt konfiguriert Aufgaben</li>
+							<li><a href="http://gruntjs.com/plugins">Grunt Plugin Repository</a></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Projekt Setup</h1>
+					</section>
+					<section>
+						<h2>1. Paketdatei</h2>
+						<p>
+							<p><code>package.json</code> Datei im Projektordner erstellen</p>
+							<p class="spaced"><pre><code>{
+	'name'    : 'projekt-id',
+	'version' : '0.0.1'
+}</code></pre></p>
+						</p>
+					</section>
+					<section>
+						<h2>2. Grunt</h2>
+						<p><pre><code>npm install grunt --save-dev</code></pre></p>
+						<p class="spaced">Installiert Pakete im Ordner <code>node_modules</code></p>
+						<p><code>package.json</code> wird automatisch geupdatet</p>
+					</section>
+					<section>
+						<h2>3. Das Gruntfile</h2>
+						<p>Konfiguration der Grunt Aufgaben im Projekt</p>
+						<p><code>Gruntfile.js</code> Datei im Projektordner erstellen</p>
+						<p class="spaced"><pre><code>module.exports = function(grunt) {
+
+	var gruntconfig = {};
+
+	gruntconfig['pkg'] = grunt.file.readJSON('package.json');
+
+	/* --- Aufgaben Konfiguration --- */
+
+	grunt.initConfig(gruntconfig);
+
+	/* --- Plugins laden --- */
+
+	// Standard Aufgabe
+	grunt.registerTask('default', []);
+
+};</code></pre></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Grunt Plugins</h1>
+					</section>
+					<section>
+						<h2>1. Concat</h2>
+						<p><pre><code>npm install grunt-contrib-concat --save-dev</code></pre></p>
+						<p class="spaced"><pre><code>// ##### Gruntfile.js #####
+
+/* --- Aufgaben Konfiguration --- */
+gruntconfig['concat'] = {
+	'dist': {
+		'src' : ['tpl/style_a.css.tpl', 'tpl/style_b.css.tpl'],
+		'dest': 'tpl/style.css.tpl'
+	}
+};
+
+/* --- Plugins laden --- */
+grunt.loadNpmTasks('grunt-contrib-concat');
+
+// Standard Aufgabe
+grunt.registerTask('default', ['concat']);</code></pre></p>
+					</section>
+					<section>
+						<h2>2. CSSMin</h2>
+						<p><pre><code>npm install grunt-contrib-cssmin --save-dev</code></pre></p>
+						<p class="spaced"><pre><code>// ##### Gruntfile.js #####
+
+/* --- Aufgaben Konfiguration --- */
+gruntconfig['cssmin'] = {
+	'minify': {
+		'expand': true,
+		'cwd'   : 'tpl/',
+		'src'   : ['*.css.tpl', '!*.min.css.tpl'],
+		'dest'  : 'templages/',
+		'ext'   : '.min.css.tpl'
+	}
+};
+
+/* --- Plugins laden --- */
+grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+// Standard Aufgabe
+grunt.registerTask('default', ['concat', 'cssmin']);</code></pre></p>
+					</section>
+					<section>
+						<h2>3. Watch</h2>
+						<p><pre><code>npm install grunt-contrib-watch --save-dev</code></pre></p>
+						<p class="spaced"><pre><code>// ##### Gruntfile.js #####
+
+/* --- Aufgaben Konfiguration --- */
+gruntconfig['watch'] = {
+	'files': ['tpl/&#65279;*.css.tpl', '!tpl/&#65279;*.min.css.tpl'],
+	'tasks': ['default']
+};
+
+/* --- Plugins laden --- */
+grunt.loadNpmTasks('grunt-contrib-watch');</code></pre></p>
+					</section>
+					<section>
+						<h2>Gruntfile.js</h2>
+						<p><pre class="scrollable"><code>module.exports = function(grunt) {
+
+	var gruntconfig = {};
+
+	gruntconfig['pkg'] = grunt.file.readJSON('package.json');
+
+	gruntconfig['concat'] = {
+		'dist': {
+			'src' : ['tpl/style_a.css.tpl', 'tpl/style_b.css.tpl'],
+			'dest': 'tpl/style.css.tpl'
+		}
+	};
+
+	gruntconfig['cssmin'] = {
+		'minify': {
+			'expand': true,
+			'cwd'   : 'tpl/',
+			'src'   : ['*.css.tpl', '!*.min.css.tpl'],
+			'dest'  : 'templages/',
+			'ext'   : '.min.css.tpl'
+		}
+	};
+
+	gruntconfig['watch'] = {
+		'files': ['tpl/&#65279;*.css.tpl', '!tpl/&#65279;*.min.css.tpl'],
+		'tasks': ['default']
+	};
+
+	grunt.initConfig(gruntconfig);
+
+	/* --- Plugins laden --- */
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+
+	// Standard Aufgabe
+	grunt.registerTask('default', ['concat', 'cssmin']);
+
+};</code></pre></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Grunt Starten</h1>
+					</section>
+					<section>
+						<h2>Standard Aufgabe</h2>
+						<p><pre><code>// Standard Aufgabe
+grunt.registerTask('default', ['concat', 'cssmin']);</code></pre></p>
+						<p class="spaced"><pre><code>grunt</code></pre></p>
+					</section>
+					<section>
+						<h2>Aufgaben direkt starten</h2>
+						<p><pre><code>grunt concat
+
+grunt cssmin
+
+grunt watch // Spezialfall: Blockiert den Prozess</code></pre></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>LESS</h1>
+						<p><img class="frameless logo" src="images/less-logo.png" /></p>
+						<h2>CSS Präprozessor</h2>
+						<p><a href="http://lesscss.org/">lesscss.org</a></p>
+					</section>
+					<section>
+						<h2>Installation</h2>
+						<p><pre><code>npm install grunt-contrib-less --save-dev</code></pre></p>
+						<p class="spaced"><pre><code>// ##### Gruntfile.js #####
+
+/* --- Aufgaben Konfiguration --- */
+gruntconfig['less'] = {
+	'dev': {
+		'files': {
+			'css/main.css': 'css/less/main.less',
+			'css/page.css': 'css/less/page.less'
+		}
+	}
+};
+
+/* --- Plugins laden --- */
+grunt.loadNpmTasks('grunt-contrib-less');</code></pre></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>SASS</h1>
+						<p><img class="frameless logo" src="images/sass-logo.png" /></p>
+						<h2>CSS Präprozessor</h2>
+						<p><a href="http://sass-lang.com/">sass-lang.com</a></p>
+					</section>
+					<section>
+						<h2>Installation</h2>
+						<p><pre><code>npm install grunt-contrib-sass --save-dev</code></pre></p>
+						<p class="spaced"><pre><code>// ##### Gruntfile.js #####
+
+/* --- Aufgaben Konfiguration --- */
+gruntconfig['sass'] = {
+	'dev': {
+		'files': {
+			'css/main.css': 'css/sass/main.sass',
+			'css/page.css': ['css/sass/inc.sass', 'css/sass/page.sass']
+		}
+	}
+};
+
+/* --- Plugins laden --- */
+grunt.loadNpmTasks('grunt-contrib-sass');</code></pre></p>
+					</section>
+				</section>
+
+
 
 				<section>
 					<h1>Fin</h1>
 					<p>Dankeschön! :)</p>
 				</section>
 
-			</div>
+			</div><!-- .slides -->
 
-		</div>
+		</div><!-- .reveal -->
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
