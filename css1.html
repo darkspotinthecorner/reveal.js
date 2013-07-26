@@ -85,68 +85,132 @@
 
 				<section>
 					<section>
-						<h2>Selektor</h2>
+						<h2>Selektoren</h2>
 						<p>Bestimmt das Ziel der Regel</p>
 					</section>
 					<section>
-						<h2>Typ</h2>
-						<p><pre><code class="language-markup">&lt;body&gt;
+						<h2>Universell</h2>
+						<p><pre><code>* { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;body&gt;
+
+&lt;div&gt;
+
+&lt;span&gt;
+
+&lt;!-- usw. --&gt;</code></pre></p>
+					</section>
+					<section>
+						<h2>Typen</h2>
+						<p><pre><code>body { ... }
+
+div { ... }
+
+h1, h2, h3 { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;body&gt;
 
 &lt;div&gt;
 
 &lt;h1&gt;
 &lt;h2&gt;
 &lt;h3&gt;</code></pre></p>
-						<p><pre><code>body { ... }
-
-div { ... }
-
-h1, h2, h3 { ... }</code></pre></p>
 					</section>
 					<section>
-						<h2>Klasse</h2>
-						<p><pre><code class="language-markup">&lt;div class="sideblock"&gt;
-
-&lt;span class="left current"&gt;
-
-&lt;small class="sub"&gt;
-&lt;p class="sub_aside"&gt;
-&lt;a class="not-so-important"&gt;</code></pre></p>
+						<h2>Klassen</h2>
 						<p><pre><code>.sideblock { ... }
 
-.left { ... }
+.left.help { ... } /* Beide Klassen müssen zutreffen */
 
 .sub, .sub_aside, .not-so-important { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;div class="sideblock"&gt;
+
+&lt;span class="left help"&gt;
+
+&lt;small class="sub more"&gt;
+&lt;p class="sub_aside"&gt;
+&lt;a class="not-so-important"&gt;</code></pre></p>
 					</section>
 					<section>
-						<h2>ID</h2>
-						<p><pre><code class="language-markup">&lt;p id="content"&gt;
+						<h2>IDs</h2>
+						<p><pre><code>#content { ... }
+
+#main-menu { ... }
+
+#block_1, #block_2, #block_3 { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;p id="content"&gt;
 
 &lt;ul id="main-menu"&gt;
 
 &lt;div id="block_1"&gt;
 &lt;div id="block_2"&gt;
 &lt;div id="block_3"&gt;</code></pre></p>
-						<p><pre><code>#content { ... }
-
-#main-menu { ... }
-
-#block_1, #block_2, #block_3 { ... }</code></pre></p>
 					</section>
 					<section>
-						<h2>Kontext</h2>
-						<p><pre><code class="language-markup">&lt;div class="head"&gt; ... &lt;h1&gt;
-
-&lt;ul id="main-menu"&gt; ... &lt;ul class="subtree"&gt; ... &lt;li&gt;
-
-&lt;section class="sidebar"&gt; ... &lt;div class="block"&gt;
-&lt;div class="sidebar"&gt; ... &lt;div class="widget"&gt;</code></pre></p>
+						<h2>Nachkommen</h2>
 						<p><pre><code>.head h1 { ... }
 
 #main-menu ul.subtree li { ... }
 
 .sidebar .block, .sidebar .widget { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;div class="head"&gt; ... &lt;h1&gt;
+
+&lt;ul id="main-menu"&gt; ... &lt;ul class="subtree"&gt; ... &lt;li&gt;
+
+&lt;section class="sidebar"&gt; ... &lt;div class="block"&gt;
+&lt;div class="sidebar"&gt; ... &lt;div class="widget"&gt;</code></pre></p>
 					</section>
+					<section>
+						<h2>Kinder</h2>
+						<p><pre><code>body > div { ... }
+
+li.spacer > p { ... }
+
+h1 > .sub, h2 > .sub { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;body&gt;&lt;div&gt;
+
+&lt;li class="spacer"&gt;&lt;p&gt;
+
+&lt;h1&gt;&lt;span class="sub"&gt;
+&lt;h2&gt;&lt;div class="sub"&gt;</code></pre></p>
+					</section>
+					<section>
+						<h2>Nachfolgende Geschwister</h2>
+						<p><pre><code>h1 + h2 { ... }
+
+header > h1 + .subtitle { ... }
+
+p + .info, p > .follow { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;h1&gt; ... &lt;/h1&gt;&lt;h2&gt;
+
+&lt;header&gt;&lt;h1&gt; ... &lt;/h1&gt;&lt;div class="subtitle"&gt;
+
+&lt;p&gt; ... &lt;/p&gt;&lt;div class="info"&gt;
+&lt;p&gt; ... &lt;/p&gt;&lt;p class="follow"&gt;</code></pre></p>
+					</section>
+					<section>
+						<h2>Attribute</h2>
+						<p><pre><code>span[title] { ... }
+
+input[type="text"] { ... }
+
+a[rel~="copyright"] { ... }
+
+body[lang|="en"] { ... }</code></pre></p>
+						<p class="spaced"><pre><code class="language-markup">&lt;span title="foo"&gt;
+
+&lt;input type="text"&gt;
+
+&lt;a rel="copyright external" href="..."&gt;
+
+&lt;body lang="en-us"&gt;</code></pre></p>
+					</section>
+
+
+
+
+
+
+
+
 				</section>
 
 				<section>

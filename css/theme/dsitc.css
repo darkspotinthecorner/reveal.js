@@ -152,6 +152,26 @@ acronym > span
 	margin-top: 0.66em;
 }
 
+.reveal .filesystem ul
+{
+	list-style: none;
+}
+
+.reveal .filesystem > ul
+{
+	margin: 0;
+}
+
+.reveal .filesystem ul li span
+{
+	font-family: 'Inconsolata', monospace;
+}
+
+.reveal .filesystem ul li i
+{
+	font-style: normal;
+}
+
 ::selection
 {
 	color: white;
