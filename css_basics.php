@@ -1,13 +1,24 @@
-<!doctype html>
+<?php
+
+require_once('./php/reveal_presentation.php');
+
+$p = new RevealPresentation(array(
+	'maintitle'      => 'CSS',
+	'subtitle'       => 'Grundlagen',
+	'authorname'     => 'Martin Gelder',
+	'authorhomepage' => 'https://plus.google.com/u/0/102958170634628677257',
+));
+
+?><!doctype html>
 <html lang="en">
 
 	<head>
 		<meta charset="utf-8">
 
-		<title>CSS - Grundlagen</title>
+		<title><?php echo $p->getTitle(); ?></title>
 
-		<meta name="description" content="CSS 1 - Grundlagen">
-		<meta name="author" content="Martin Gelder">
+		<meta name="description" content="<?php echo $p->getTitle(); ?>">
+		<meta name="author" content="<?php echo $p->getAuthorName(); ?>">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -39,10 +50,10 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>CSS 1</h1>
-					<h3>Grundlagen</h3>
+					<h1><?php echo $p->getMainTitle(); ?></h1>
+					<h3><?php echo $p->getSubTitle(); ?></h3>
 					<p>
-						<small><a href="https://plus.google.com/u/0/102958170634628677257">Martin Gelder</a></small>
+						<small><a href="<?php echo $p->getAuthorHomepage(); ?>"><?php echo $p->getAuthorName(); ?></a></small>
 					</p>
 				</section>
 
