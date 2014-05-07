@@ -3,8 +3,8 @@
 require_once('./php/reveal_presentation.php');
 
 $p = new RevealPresentation(array(
-	'maintitle'      => 'CSS',
-	'subtitle'       => 'Transitions',
+	'maintitle'      => 'Regex',
+	'subtitle'       => 'PCRE Syntax (PHP)',
 	'authorname'     => 'Martin Gelder',
 	'authorhomepage' => 'https://plus.google.com/u/0/102958170634628677257',
 ));
@@ -38,62 +38,6 @@ $p = new RevealPresentation(array(
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
-		<style type="text/css">
-
-			.reveal .animation-container
-			{
-				margin-top: 1em;
-				position: relative;
-				min-height: 200px;
-				background-color: rgba(0,0,0,0.2);
-				border-radius: 20px;
-			}
-
-			.reveal .example-block
-			{
-				position: absolute;
-				width: 100px;
-				height: 100px;
-				background-color: #ef7c27;
-				border-radius: 20px;
-				box-shadow: 0px 0px 0px 10px #000, inset 0px -10px 10px -10px #000, inset 0px 10px 10px -10px #fff;
-			}
-
-			#example-1 .example-block
-			{
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				margin: auto;
-				transition-property: width;
-				transition-duration: 0.75s;
-			}
-
-			#example-1:hover .example-block
-			{
-				width: 400px;
-			}
-
-			#example-2 .example-block
-			{
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				margin: auto;
-				transition-property: width, height;
-				transition-duration: 0.75s;
-			}
-
-			#example-2:hover .example-block
-			{
-				height: 50px;
-				width: 400px;
-			}
-
-
-		</style>
 	</head>
 
 	<body>
@@ -101,7 +45,7 @@ $p = new RevealPresentation(array(
 			<img src="images/dsitc.png" />
 		</div>
 
-		<div class="reveal language-css">
+		<div class="reveal language-php">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
@@ -114,78 +58,18 @@ $p = new RevealPresentation(array(
 				</section>
 
 				<section>
-					<h2>Was sind Transitions?</h2>
-					<p>CSS Eigenschaften</p>
-					<p>Animation von Änderungen</p>
+					<h2>Regex?</h2>
+					<p>(<acronym><span>Reg</span>ular <span>Ex</span>pression)</p>
+					<p>Reguläre Ausdrücke beschreiben Textmuster</p>
 				</section>
 
 				<section>
 					<section>
-						<h2>Kernangaben</h2>
-						<p><pre><code>.animated {
-    /* --- 1. Was wird animiert? --- */
-    transition-property: width;
-
-    /* --- 2. Wie lange dauert die Animation? --- */
-    transition-duration: 0.75s;
-}</code></pre></p>
+						<h2>Einbindung</h2>
+						<p><pre><code></code></pre></p>
 					</section>
 				</section>
 
-				<section>
-					<h2>Zustände definieren</h2>
-					<p><pre><code>div {
-    width: 100px;
-    transition-property: width;
-    transition-duration: 0.75s;
-}
-
-div:hover {
-    width: 400px;
-}</code></pre></p>
-					<div id="example-1" class="animation-container">
-						<div class="example-block"></div>
-					</div>
-				</section>
-
-				<section>
-					<h2>Mehrere Eigenschaften</h2>
-					<p><pre><code>div {
-    width: 100px; height: 100px;
-    transition-property: width, height;
-    transition-duration: 0.75s;
-}
-
-div:hover {
-    width: 400px; height: 50px;
-}</code></pre></p>
-					<div id="example-2" class="animation-container">
-						<div class="example-block"></div>
-					</div>
-				</section>
-
-				<section>
-					<section>
-						<h2>Verlaufsfunktionen</h2>
-					</section>
-					<section>
-						<h2>Keywords</h2>
-					</section>
-					<section>
-						<h2>cubic-bezier</h2>
-					</section>
-					<section>
-						<h2>steps</h2>
-					</section>
-				</section>
-
-				<section>
-					<h2>Shorthands</h2>
-				</section>
-
-				<section>
-					<h2></h2>
-				</section>
 
 			</div>
 
@@ -194,7 +78,6 @@ div:hover {
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 		<script src="plugin/prism/prism.js"></script>
-		<script src="plugin/prefixfree/prefixfree.min.js"></script>
 
 		<script>
 

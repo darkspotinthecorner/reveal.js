@@ -1,10 +1,21 @@
-<!doctype html>
+<?php
+
+require_once('../php/reveal_presentation.php');
+
+$p = new RevealPresentation(array(
+	'maintitle'      => 'Grunt',
+	'subtitle'       => 'Einführung und Workflow',
+	'authorname'     => 'Martin Gelder',
+	'authorhomepage' => 'https://plus.google.com/u/0/102958170634628677257',
+));
+
+?><!doctype html>
 <html lang="en">
 
 	<head>
 		<meta charset="utf-8">
 
-		<title>Grunt - Einführung und Workflow</title>
+		<title><?php echo $p->getTitle(); ?></title>
 
 		<meta name="description" content="Grunt - Einführung und Workflow">
 		<meta name="author" content="Martin Gelder">
@@ -14,31 +25,24 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="lib/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/theme/dsitc.css" id="theme">
+		<link rel="stylesheet" href="../css/reveal.min.css">
+		<link rel="stylesheet" href="../css/theme/dsitc.css" id="theme">
 
-		<link rel="stylesheet" href="plugin/prism/prism.css">
-
-		<style type="text/css">
-
-
-
-		</style>
+		<link rel="stylesheet" href="../plugin/prism/prism.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+			document.write( '<link rel="stylesheet" href="../css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
 
 		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
+		<script src="../lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
 
 	<body>
 		<div class="watermark">
-			<img src="images/dsitc.png" />
+			<img src="../images/dsitc.png" />
 		</div>
 
 		<div class="reveal language-javascript">
@@ -47,7 +51,7 @@
 			<div class="slides">
 
 				<section>
-					<p><img class="frameless logo" src="images/gruntjs/grunt-logo.png" /></p>
+					<p><img class="frameless logo" src="../images/gruntjs/grunt-logo.png" /></p>
 					<h1>Grunt</h1>
 					<h3>Einführung und Workflow</h3>
 					<p><small><a href="https://plus.google.com/u/0/102958170634628677257">Martin Gelder</a></small></p>
@@ -70,14 +74,14 @@
 					</section>
 					<section>
 						<h1>Node.js</h1>
-						<p><img class="frameless logo" src="images/gruntjs/nodejs-logo.png" /></p>
+						<p><img class="frameless logo" src="../images/gruntjs/nodejs-logo.png" /></p>
 						<h2>JS Laufzeitumgebung</h2>
 						<p>Basiert auf Chromes V8 Javascript Engine</p>
 						<p>Download via <a href="http://nodejs.org/">nodejs.org</a></p>
 					</section>
 					<section>
 						<h1>NPM</h1>
-						<p><img class="frameless logo" src="images/gruntjs/npm-logo.png" /></p>
+						<p><img class="frameless logo" src="../images/gruntjs/npm-logo.png" /></p>
 						<h2>Node.js Paketverwaltung</h2>
 					</section>
 				</section>
@@ -317,7 +321,7 @@ div {
 					</section>
 					<section>
 						<h2>Grunt Start</h2>
-						<p><img src="images/gruntjs/sshot_run_grunt_combine_1.png" /></p>
+						<p><img src="../images/gruntjs/sshot_run_grunt_combine_1.png" /></p>
 					</section>
 					<section>
 						<h2>Neue Projektstruktur</h2>
@@ -362,7 +366,7 @@ h1{font-size:40px}div{padding:10px}</code></pre></p>
 				<section>
 					<section>
 						<h1>LESS</h1>
-						<p><img class="frameless logo" src="images/gruntjs/less-logo.png" /></p>
+						<p><img class="frameless logo" src="../images/gruntjs/less-logo.png" /></p>
 						<h2>CSS Präprozessor</h2>
 						<p><a href="http://lesscss.org/">lesscss.org</a></p>
 					</section>
@@ -389,7 +393,7 @@ grunt.loadNpmTasks('grunt-contrib-less');</code></pre></p>
 				<section>
 					<section>
 						<h1>SASS</h1>
-						<p><img class="frameless logo" src="images/gruntjs/sass-logo.png" /></p>
+						<p><img class="frameless logo" src="../images/gruntjs/sass-logo.png" /></p>
 						<h2>CSS Präprozessor</h2>
 						<p><a href="http://sass-lang.com/">sass-lang.com</a></p>
 					</section>
@@ -424,9 +428,9 @@ grunt.loadNpmTasks('grunt-contrib-sass');</code></pre></p>
 
 		</div><!-- .reveal -->
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-		<script src="plugin/prism/prism.js"></script>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.min.js"></script>
+		<script src="../plugin/prism/prism.js"></script>
 
 		<script>
 
@@ -443,15 +447,15 @@ grunt.loadNpmTasks('grunt-contrib-sass');</code></pre></p>
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					// { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/prism/prism.js', async: true },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					// { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/prism/prism.js', async: true },
+					{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '../plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '../plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
 
